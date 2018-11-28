@@ -14,6 +14,7 @@ export class ListaCompraProvider {
   constructor(private db:AngularFireDatabase) {
    
   }
+  // *.21 subo el item a la base de datos
   addItem(item:ShoppingItem){
     return this.refListaCompra.push(item);
   }
