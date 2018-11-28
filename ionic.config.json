@@ -1,0 +1,7 @@
+{
+  "name": "abcm",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
