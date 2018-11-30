@@ -1,3 +1,4 @@
+import { ShoppingItem } from './../../models/shopping item/shopping item interfaz';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -14,12 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'edit-item.html',
 })
 export class EditItemPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  // *.32 añadir el item
+  item:ShoppingItem;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicioListaCompra:ShoppingItem) {
+    console.log(navParams.get("item"));
+    //*.33 asingamos los datos que nos llegan
+    this.item=navParams.get("item");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EditItemPage');
+  // *.37 metodo de guardarItem
+  guardarItem(item:ShoppingItem){
+
   }
+  
 
 }

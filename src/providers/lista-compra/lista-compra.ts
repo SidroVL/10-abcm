@@ -23,4 +23,9 @@ export class ListaCompraProvider {
   getItemList(){
     return this.refListaCompra;
   }
+
+  // *.36 
+  editItem(item:ShoppingItem){
+    return this.refListaCompra.update(item.$key,item);// 2 metodos , primero la clave y luego los datos
+  }
 }
