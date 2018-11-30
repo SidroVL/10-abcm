@@ -29,7 +29,7 @@ export class EditItemPage {
   guardarItem(item:ShoppingItem){
     
     this.servicioListaCompra.editItem(item).then(()=>{
-      this.navCtrl.setRoot("Homepage");
+      this.navCtrl.setRoot("HomePage");
       this.mensaje("item cambiado");
     })
   }
@@ -40,11 +40,12 @@ export class EditItemPage {
 
   }
   // *.41 mensaje toast
-  mensaje(texto:string){
-    let toast = this.toast.create({
+  mensaje (texto:string)
+  {
+    const toast = this.toast.create({
       message: texto,
-      duration: 3000,
-     
+      duration: 3000
+    });
+    toast.present();
   }
- 
 }
