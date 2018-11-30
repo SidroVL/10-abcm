@@ -1,3 +1,4 @@
+import { EditItemPage } from './../edit-item/edit-item';
 
 import { ListaCompraProvider } from './../../providers/lista-compra/lista-compra';
 import { Component } from '@angular/core';
@@ -37,16 +38,17 @@ export class HomePage {
                               ...c.payload.val(),
                             }
 
-                              )
-                            )
-                          }
-
-                        )
                       )
+                   )
+              }
+
+           )
+       )
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  // *.31 metodo que atiende el evento click
+  selectShoppingItem(shoppingItem:ShoppingItem){
+    this.navCtrl.push("EditItemPage",{"item":shoppingItem}); //pasar un parametro
   }
 
 }
