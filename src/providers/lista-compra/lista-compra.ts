@@ -26,6 +26,12 @@ export class ListaCompraProvider {
 
   // *.36 
   editItem(item:ShoppingItem){
-    return this.refListaCompra.update(item.$key,item);// 2 metodos , primero la clave y luego los datos
+    return this.refListaCompra.update(item.key,item);// 2 metodos , primero la clave y luego los datos
   }
+
+  // *.36
+  deleteItem(item:ShoppingItem){
+    return this.refListaCompra.remove(item.key);
+  }
+
 }
