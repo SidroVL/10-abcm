@@ -1,7 +1,7 @@
 import { ListaCompraProvider } from './../../providers/lista-compra/lista-compra';
 import { ShoppingItem } from './../../models/shopping item/shopping item interfaz';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 
 /**
@@ -19,7 +19,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class EditItemPage {
   // *.32 añadir el item
   item:ShoppingItem;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private servicioListaCompra:ListaCompraProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private servicioListaCompra:ListaCompraProvider, private toast:ToastController) {
     console.log(navParams.get("item"));
     //*.33 asingamos los datos que nos llegan
     this.item=navParams.get("item");
@@ -30,12 +30,21 @@ export class EditItemPage {
     
     this.servicioListaCompra.editItem(item).then(()=>{
       this.navCtrl.setRoot("Homepage");
+      this.mensaje("item cambiado");
     })
   }
   // *.40
   borrarItem(item:ShoppingItem){
-    this.servicioListaCompra.deleteItem(item).then(()=> this.navCtrl.setRoot("HomePage"))
-  }
-  
+    this.servicioListaCompra.deleteItem(item).then(()=>{ this.navCtrl.setRoot("HomePage");
+     this.mensaje("item borrado");});
 
+  }
+  // *.41 mensaje toast
+  mensaje(texto:string){
+    let toast = this.toast.create({
+      message: texto,
+      duration: 3000,
+     
+  }
+ 
 }
