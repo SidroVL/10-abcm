@@ -27,6 +27,7 @@ export class HomePage {
 
   // *.25 inyectar la listacompraprovider
   constructor(public navCtrl: NavController, public navParams: NavParams, private shopping:ListaCompraProvider) {
+    //*.28 referencia github angular
       this.listaCompra=this.shopping.getItemList() //devuelve la DB list
                       .snapshotChanges() //valores de la lista
                       .pipe(map( changes=>{
